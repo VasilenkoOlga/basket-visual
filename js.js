@@ -210,11 +210,8 @@ const removeError = function (text, textInput){
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "../node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./errorVisualization.js */ "./js/errorVisualization.js");
-/* harmony import */ var _workCard_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./workCard.js */ "./js/workCard.js");
-
+/* harmony import */ var _errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./errorVisualization.js */ "./js/errorVisualization.js");
+/* harmony import */ var _workCard_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./workCard.js */ "./js/workCard.js");
 
 
 
@@ -260,7 +257,7 @@ addressText.addEventListener('invalid', () => {
   const text = address.querySelector('.form__placeholder');
 
   if (addressText.validity.valueMissing){
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text,addressText, 'Обязательное поле');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text,addressText, 'Обязательное поле');
   }
 //  addressText.reportValidity();
 });
@@ -271,9 +268,9 @@ addressText.addEventListener('input', () => {
   const text = address.querySelector('.form__placeholder');
   addressText.checkValidity();
   if (valueLength == 0) {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, addressText, 'Обязательное поле');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, addressText, 'Обязательное поле');
   } else {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, addressText);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, addressText);
   }
   addressText.reportValidity();
 });
@@ -285,15 +282,15 @@ addressText.addEventListener('blur', async function(){ // Делаем функ�
   const text = address.querySelector('.form__placeholder');
 //  addressText.checkValidity();
   if (valueLength == 0) {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, addressText, 'Обязательное поле');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, addressText, 'Обязательное поле');
   } else {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, addressText);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, addressText);
     options.body = JSON.stringify({query: query}); // Изменение query в options, т.к. иначе используется те что записаны при инициации страницы
     let response = await fetch(url, options); // ожидание выполнения промиса (благодаря await)
     data = await response.json(); // сохранение результата промиса в переменную (c ожиданием благодаря await)
     let geoLon = data.suggestions[0].data.geo_lon; // присвоение координат переменным
     let geoLat = data.suggestions[0].data.geo_lat;
-    (0,_workCard_js__WEBPACK_IMPORTED_MODULE_2__.movingNewCoordinates)(geoLat, geoLon); // перемещеие карты и создание новой метки
+    (0,_workCard_js__WEBPACK_IMPORTED_MODULE_1__.movingNewCoordinates)(geoLat, geoLon); // перемещеие карты и создание новой метки
   }
 //   addressText.reportValidity();
 });
@@ -303,7 +300,7 @@ select.addEventListener('invalid', () => {
   const text = formSelect.querySelector('.form__placeholder');
 
   if (select.validity.valueMissing){
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, select, 'Обязательное поле', selectGap);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, select, 'Обязательное поле', selectGap);
   }
 });
 
@@ -312,7 +309,7 @@ emailText.addEventListener('invalid', () => {
   const text = email.querySelector('.form__placeholder');
 
   if (emailText.validity.valueMissing){
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, emailText, 'Обязательное поле');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, emailText, 'Обязательное поле');
   }
 });
 
@@ -321,12 +318,12 @@ emailText.addEventListener('input', () => {
   const value = emailText.value;
   const text = email.querySelector('.form__placeholder');
   if (valueLength == 0) {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, emailText);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, emailText);
   } else if (!(REG_EMAIL.test(value))) {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, emailText, 'Введите корректный email');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, emailText, 'Введите корректный email');
   }
   else {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, emailText);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, emailText);
   }
   emailText.reportValidity();
 })
@@ -336,7 +333,7 @@ emailText.addEventListener('input', () => {
 telephoneText.addEventListener('invalid', () => {
   const text = telephone.querySelector('.form__placeholder');
   if (telephoneText.validity.valueMissing){
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, telephoneText, 'Обязательное поле');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, telephoneText, 'Обязательное поле');
   }
 });
 
@@ -345,12 +342,12 @@ telephoneText.addEventListener('input', () => {
   const value = telephoneText.value;
   const text = telephone.querySelector('.form__placeholder');
   if (valueLength == 0) {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, telephoneText);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, telephoneText);
   } else if (!(REG_TELEPHONE.test(value))) {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, telephoneText, 'Телефон от 6 до 16 цифр');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, telephoneText, 'Телефон от 6 до 16 цифр');
   }
   else {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, telephoneText);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, telephoneText);
   }
   telephoneText.reportValidity();
 });
@@ -361,9 +358,9 @@ textDescription.addEventListener('input', () => {
   const valueLength = textDescription.value.length;
   const text = description.querySelector('.form__placeholder');
   if (valueLength > MAX_COMMENT_LENGTH){
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, textDescription, 'Не больше 600 символов');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, textDescription, 'Не больше 600 символов');
   } else {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, textDescription);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, textDescription);
   }
   textDescription.reportValidity();
 });
@@ -372,7 +369,7 @@ textDescription.addEventListener('input', () => {
 nameText.addEventListener('invalid', () => {
   const text = name.querySelector('.form__placeholder');
   if (nameText.validity.valueMissing){
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, nameText, 'Обязательное поле');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, nameText, 'Обязательное поле');
   }
 });
 
@@ -381,45 +378,30 @@ nameText.addEventListener('input', () => {
   const text = name.querySelector('.form__placeholder');
   nameText.checkValidity();
   if (valueLength > 0 && valueLength < MIN_NAME_LENGTH) {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.addError)(text, nameText, 'Не менее 3 символов');
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.addError)(text, nameText, 'Не менее 3 символов');
   }
   else {
-    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, nameText);
+    (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_0__.removeError)(text, nameText);
   }
   nameText.reportValidity();
 });
 
-/*
-const url = '';
+// Собрание данных из формы в FormData и показ в консоль
 form.addEventListener('submit', function (evt) {
   evt.preventDefault();
   const formData = new FormData(evt.target);
-    fetch(
-      url,
-      {
-        method: 'POST',
-        body: formData,
-      },)
+  console.log(Object.fromEntries(formData));
+    // Обработка поля тип упаковки при отправке
+      selectGap.textContent = "Тип упаковки"
+      selectOption.forEach((option, i) => {
+        if(i > 0) {
+          option.removeAttribute("selected");
+        }
+      });
+      selectOption[0].setAttribute("selected", "selected");
       form.reset();
+      addressText.value = "";
 });
-*/
-
-// Временное решение для данных из формы
-form.addEventListener ("submit", function(e){
-  e.preventDefault();
-  let data = jquery__WEBPACK_IMPORTED_MODULE_0__(this).serialize();
-  console.log(data);
-// Обработка поля тип упаковки при отправке
-  selectGap.textContent = "Тип упаковки"
-  selectOption.forEach((option, i) => {
-    if(i > 0) {
-      option.removeAttribute("selected");
-    }
-  });
-  selectOption[0].setAttribute("selected", "selected");
-  form.reset();
-  addressText.value = "";
-})
 
 
 /***/ }),
