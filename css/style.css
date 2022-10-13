@@ -981,7 +981,7 @@ ul {
 }
 @media (min-width: 1110px) {
   .select-wrapper {
-    min-width: 505px;
+    width: 505px;
   }
 }
 .select-wrap {
