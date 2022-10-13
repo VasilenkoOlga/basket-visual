@@ -101,7 +101,7 @@ const select = formSelect.querySelector('.form__select');
 const text = formSelect.querySelector('.form__placeholder');
 
 //  Выпадающий список
-jquery__WEBPACK_IMPORTED_MODULE_0__('.select').each(function(){
+jquery__WEBPACK_IMPORTED_MODULE_0__('.form__select').each(function(){
 		const $this = jquery__WEBPACK_IMPORTED_MODULE_0__(this), // присваивание $this = ('.select')
 			selectOption = $this.find('option'), // Найти пункт
 			selectOptionLength = selectOption.length, // Длинна selectOption (количество)
@@ -109,7 +109,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0__('.select').each(function(){
 			dur = 500;
 
 		//$this.hide(); // скрытие селекта
-		$this.wrap('<div class="select"></div>'); //создание div class="select" внутрь которого помещается селект из верстки
+		$this.wrap('<div class="select-wrapper"></div>'); //создание div class="select" внутрь которого помещается селект из верстки
 		jquery__WEBPACK_IMPORTED_MODULE_0__('<div>',{ //создание div внутри контейнера с классом и текстом
 			class: 'select__gap',
 			text: 'Тип упаковки'

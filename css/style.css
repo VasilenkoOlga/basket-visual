@@ -778,7 +778,7 @@ button {
 }
 #map {
   height: 200px;
-  margin-bottom: 28px;
+  margin-bottom: 33px;
 }
 @media (min-width: 1110px) {
   #map {
@@ -819,6 +819,14 @@ button {
 @media (min-width: 1110px) {
   .form_form > .form__label:last-of-type {
     margin-bottom: 69px;
+  }
+}
+.form__label--type-packaging {
+  margin-bottom: 6px;
+}
+@media (min-width: 1110px) {
+  .form__label--type-packaging {
+    margin-bottom: 10px;
   }
 }
 .form__label .form__input,
@@ -917,7 +925,7 @@ button {
   height: 0;
   padding: 0;
   margin: 0;
-  border: 1px solid #ffffff;
+  border: 0px solid #ffffff;
 }
 option {
   background: #ffffff;
@@ -965,14 +973,14 @@ ul {
   margin: 0;
   list-style-type: none;
 }
-.select {
+.select-wrapper {
   display: inline-block;
   vertical-align: top;
   max-width: 286px;
   width: 100%;
 }
 @media (min-width: 1110px) {
-  .select {
+  .select-wrapper {
     min-width: 505px;
   }
 }
@@ -1141,6 +1149,7 @@ ul {
   .purchases__price {
     font-size: 20px;
     line-height: 23px;
+    text-align: left;
   }
 }
 .purchases__description-number {
@@ -1272,7 +1281,7 @@ ul {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 24px;
-  margin-bottom: 22px;
+  margin-bottom: 23px;
   z-index: 1000;
 }
 @media (min-width: 1110px) {
