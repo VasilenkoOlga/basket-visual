@@ -37,8 +37,8 @@ const products = document.querySelectorAll('.purchases__item'); // Все кар
 
 products.forEach((item, i) => {
   let product = products[i].querySelector('.purchases__number-count'); // Карточка товара
-  const productMinus = products[i].querySelector('.purchases__button-minus');
-  const productPlus = products[i].querySelector('.purchases__button-plus');
+  const productMinus = products[i].querySelector('.purchases__button-sign--minus');
+  const productPlus = products[i].querySelector('.purchases__button-sign--plus');
 
   let productValue = Number(product.value); // Значение количества товара
 
@@ -147,7 +147,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0__('.form__select').each(function(){
           jquery__WEBPACK_IMPORTED_MODULE_0__('select option[value="' + chooseItem + '"]').attr('selected', 'selected');
           (0,_errorVisualization_js__WEBPACK_IMPORTED_MODULE_1__.removeError)(text, select);
           selectGap.removeClass('color-red')
-					selectGap.text(jquery__WEBPACK_IMPORTED_MODULE_0__(this).find('span').text());
+					selectGap.text(jquery__WEBPACK_IMPORTED_MODULE_0__(this).find('span').text()).css("color", "#000000");
 					selectList.slideUp(dur); // Плавное скрытие JQ
 					selectGap.removeClass('on'); // Удалить класс
 				});
@@ -228,8 +228,8 @@ const email = document.querySelector('.form__label--email');
 const emailText = email.querySelector('.form__input--email');
 const formSelect = document.querySelector('.form__label--type-packaging');
 const select = formSelect.querySelector('.form__select');
-const REG_TELEPHONE = /^[\d\+][\d\(\)\-]{4,14}\d$/; // от 6 до 16 цифр, первая цифра или плюс, последняя только цифра. В середине допустимы скобки и тире
-const REG_EMAIL = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/;
+const REG_TELEPHONE = /^[\d\\+][\d\\(\\)\\-]{4,14}\d$/; // от 6 до 16 цифр, первая цифра или плюс, последняя только цифра. В середине допустимы скобки и тире
+const REG_EMAIL = /^[\w-\\.]+@[\w-]+\.[a-z]{2,4}$/;
 const selectGap = document.querySelector('.select__gap');
 const selectOption = select.querySelectorAll('option');
 const address = document.querySelector('.form__label--adress');
@@ -440,6 +440,7 @@ const navToggle = document.querySelector('.main-nav_toggle-button');
 const svgClose = document.querySelector('#svgClose');
 const svgOpen = document.querySelector('#svgOpen');
 
+
 navToggle.addEventListener('click',function(event) {
    event.preventDefault();
    svgOpen.classList.toggle('vissualy-hidden');
@@ -450,9 +451,11 @@ navToggle.addEventListener('click', function() {
   if (navMain.classList.contains('main-nav--closed')) {
     navMain.classList.remove('main-nav--closed');
     navMain.classList.add('main-nav--opened');
+    document.body.style.overflow = 'hidden';
   } else {
     navMain.classList.add('main-nav--closed');
     navMain.classList.remove('main-nav--opened');
+    document.body.style.overflow = 'visible';
   }
 });
 
@@ -531,8 +534,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//import React from 'react';
-//import {render} from 'react-dom';
 
 
 /***/ })
