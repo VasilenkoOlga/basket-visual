@@ -889,6 +889,9 @@ option {
 .purchases__link-name {
   text-decoration: none;
 }
+.purchases__link-name:hover .purchases__name {
+  opacity: 0.5;
+}
 .purchases__name {
   font-size: 16px;
   font-weight: 700;
